@@ -63,6 +63,7 @@ object fMain: TfMain
       Size.PlatformDefault = False
       TabOrder = 6
       Text = #1044#1086#1073#1072#1074#1080#1090#1100' '#1091#1079#1077#1083
+      OnClick = BtnAddNodeClick
     end
   end
   object PnlAutoGenData: TPanel
@@ -183,13 +184,13 @@ object fMain: TfMain
     Size.Height = 465.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 5
-    object LblDataAsIs: TLabel
+    object LblInputKeySequence: TLabel
       Position.X = 8.000000000000000000
       Position.Y = 8.000000000000000000
-      Size.Width = 113.000000000000000000
+      Size.Width = 225.000000000000000000
       Size.Height = 17.000000000000000000
       Size.PlatformDefault = False
-      Text = #1044#1072#1085#1085#1099#1077' '#1082#1072#1082' '#1077#1089#1090#1100
+      Text = #1042#1093#1086#1076#1085#1072#1103' '#1087#1086#1089#1083#1077#1076#1086#1074#1072#1090#1077#1083#1100#1085#1086#1089#1090#1100' '#1082#1083#1102#1095#1077#1081
       TabOrder = 1
     end
     object LblOutTreeInDirectOrder: TLabel
@@ -210,7 +211,7 @@ object fMain: TfMain
       Text = #1042#1099#1074#1086#1076' '#1076#1077#1088#1077#1074#1072' '#1074' '#1089#1080#1084#1084#1077#1090#1088#1080#1095#1085#1086#1084' '#1087#1086#1088#1103#1076#1082#1077
       TabOrder = 3
     end
-    object MemoDataAsIs: TMemo
+    object MemoInputKeySequence: TMemo
       Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
       DataDetectorTypes = []
       Position.X = 8.000000000000000000

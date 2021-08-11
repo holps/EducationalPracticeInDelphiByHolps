@@ -3,7 +3,8 @@ program BinarySearchTree;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  Main in 'Main.pas' {fMain};
+  Main in 'Main.pas' {fMain},
+  BinarySearchTree in 'BinarySearchTree.pas';
 
 {$R *.res}
 
