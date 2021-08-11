@@ -31,10 +31,10 @@ type
     LblPnlMgmtData: TLabel;
     BtnResetBinarySearchTree: TButton;
     PnlOutDataVisualView: TPanel;
-    LblDataAsIs: TLabel;
+    LblInputKeySequence: TLabel;
     LblOutTreeInDirectOrder: TLabel;
     LblOutTreeInSymmetricOrder: TLabel;
-    MemoDataAsIs: TMemo;
+    MemoInputKeySequence: TMemo;
     MemoOutTreeInDirectOrder: TMemo;
     MemoOutTreeInSymmetricOrder: TMemo;
   private
