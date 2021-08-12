@@ -45,6 +45,9 @@ object fMain: TfMain
       TabOrder = 4
       Position.X = 136.000000000000000000
       Position.Y = 48.000000000000000000
+      Size.Width = 225.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
     end
     object LblInfo: TLabel
       Position.X = 136.000000000000000000
@@ -56,7 +59,7 @@ object fMain: TfMain
       TabOrder = 5
     end
     object BtnAddNode: TButton
-      Position.X = 256.000000000000000000
+      Position.X = 384.000000000000000000
       Position.Y = 48.000000000000000000
       Size.Width = 96.000000000000000000
       Size.Height = 22.000000000000000000
@@ -214,6 +217,7 @@ object fMain: TfMain
     object MemoInputKeySequence: TMemo
       Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
       DataDetectorTypes = []
+      TextSettings.WordWrap = True
       Position.X = 8.000000000000000000
       Position.Y = 24.000000000000000000
       Size.Width = 257.000000000000000000

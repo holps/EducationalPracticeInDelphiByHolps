@@ -4,7 +4,7 @@ uses
   System.StartUpCopy,
   FMX.Forms,
   Main in 'Main.pas' {fMain},
-  BinarySearchTree in 'BinarySearchTree.pas';
+  BSTree in 'BSTree.pas';
 
 {$R *.res}
 
