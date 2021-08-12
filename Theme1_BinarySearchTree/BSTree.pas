@@ -5,7 +5,7 @@ interface
   uses
     FMX.Dialogs;
 type
-  TData = ShortString;
+  TData = string;
 
   pTreeNode = ^TNode;
   TNode = record
@@ -21,14 +21,14 @@ var
 //Создание нового узла
 procedure CreateNode(var pNewNode: pTreeNode; dataField: TData; keyField: Integer);
 
-//Добавлени узла
+//Добавление узла
 procedure AddNode(var pNewNode: pTreeNode; dataField: TData; keyField: Integer);
 
 implementation
 
-//создание нового узла
-
+//Создание нового узла
 procedure CreateNode(var pNewNode: pTreeNode; dataField: TData; keyField: Integer);
+
 begin
   New(pNewNode);
   pNewNode^.data := dataField;
@@ -37,7 +37,7 @@ begin
   pNewNode^.Right := nil;
 end;
 
-//Добавление узла
+//Рекурсивное добавление узла
 procedure AddNode(var pNewNode: pTreeNode; dataField: TData; keyField: Integer);
 
 begin

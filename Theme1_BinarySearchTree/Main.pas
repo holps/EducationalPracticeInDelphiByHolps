@@ -55,7 +55,8 @@ uses BSTree;
 
 procedure TfMain.Show(const Msg: string);
 begin
-  MemoInputKeySequence.Lines.Add(Msg);
+  //MemoInputKeySequence.Lines.Add(Msg);
+  MemoInputKeySequence.Lines.Text := MemoInputKeySequence.Text + EdtKey.Text + ' -> ';
 end;
 
 //Процедура вывода на экран входной последовательности ключей дерева
