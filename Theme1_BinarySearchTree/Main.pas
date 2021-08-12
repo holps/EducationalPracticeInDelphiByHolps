@@ -37,10 +37,12 @@ type
     MemoInputKeySequence: TMemo;
     MemoOutTreeInDirectOrder: TMemo;
     MemoOutTreeInSymmetricOrder: TMemo;
+    procedure BtnAddNodeClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+    procedure Show(const Msg: string);
   end;
 
 var
@@ -49,5 +51,37 @@ var
 implementation
 
 {$R *.fmx}
+uses BSTree;
+
+procedure TfMain.Show(const Msg: string);
+begin
+  MemoInputKeySequence.Lines.Add(Msg);
+end;
+
+//Процедура вывода на экран входной последовательности ключей дерева
+
+
+//Процедура вывода на экран дерева в прямом порядке
+
+
+//Процедура вывода на экран дерева в симметричном порядке
+
+
+
+//Процедура добавления вершины в дерево
+
+procedure TfMain.BtnAddNodeClick(Sender: TObject);
+
+begin
+  if (EdtKey.Text = '') or (EdtInfo.Text = '') then
+    ShowMessage('Не заданы ключ или данные нового узла!')
+    else
+      begin
+        AddNode(WorkTree,EdtInfo.Text,StrToInt(EdtKey.Text));
+        Show(EdtKey.Text);
+      end;
+
+end;
+
 
 end.

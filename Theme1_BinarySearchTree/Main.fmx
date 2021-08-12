@@ -63,6 +63,7 @@ object fMain: TfMain
       Size.PlatformDefault = False
       TabOrder = 6
       Text = #1044#1086#1073#1072#1074#1080#1090#1100' '#1091#1079#1077#1083
+      OnClick = BtnAddNodeClick
     end
   end
   object PnlAutoGenData: TPanel
