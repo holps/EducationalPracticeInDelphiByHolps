@@ -81,7 +81,7 @@ begin
     else
       begin
         AddNode(WorkTree,EdtInfo.Text,StrToInt(EdtKey.Text));
-        Show(EdtKey.Text);
+        //Show(EdtKey.Text);
       end;
 
 end;

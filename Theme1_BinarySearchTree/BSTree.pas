@@ -3,7 +3,7 @@ unit BSTree;
 
 interface
   uses
-    FMX.Dialogs;
+    FMX.Dialogs, SysUtils;
 type
   TData = string;
 
@@ -42,13 +42,22 @@ procedure AddNode(var pNewNode: pTreeNode; dataField: TData; keyField: Integer);
 
 begin
   if pNewNode = nil then
-    CreateNode(pNewNode, dataField, keyField)
+    begin
+      CreateNode(pNewNode, dataField, keyField);
+      ShowMessage('Добавлен узел' + IntToStr(pNewNode^.key));
+    end
     else
       if (keyField < pNewNode^.key) then
-        AddNode(pNewNode^.left, dataField, keyField)
+        begin
+        AddNode(pNewNode^.left, dataField, keyField);
+        ShowMessage('Добавлен узел' + IntToStr(pNewNode^.key));
+        end
         else
           if (keyField > pNewNode^.key) then
-            AddNode(pNewNode^.right, dataField, keyField)
+           begin
+            AddNode(pNewNode^.right, dataField, keyField);
+            ShowMessage('Добавлен узел' + IntToStr(pNewNode^.key));
+           end
               else
                 ShowMessage('Ключ неуникален. Попробуйте снова.');
 
