@@ -3,7 +3,7 @@ unit BSTree;
 
 interface
   uses
-    FMX.Dialogs;
+    FMX.Dialogs, SysUtils;
 type
   TData = string;
 
@@ -53,5 +53,32 @@ begin
                 ShowMessage('Ключ неуникален. Попробуйте снова.');
 
 end;
+
+//Дополнение слева строки пробелами
+function SpaceLeftString(src: string; colSpace: Integer): string;
+begin
+  Result := Src;
+  while Length(Result) < colSpace do
+    Result := ' ' + Result;
+end;
+
+//Рекурсивная реализация обхода в прямом направлении
+procedure PreOrder(pTemp: pTreeNode; var lvl: Integer);
+begin
+  if pTemp <> nil then
+    begin
+      inc (lvl,5);
+      ShowMessage(IntToStr(lvl));
+      //вывод pTemp^.keyField
+      //воспользоваться функцией добавления пробелов
+      //и вывод на экран
+
+      PreOrder(pTemp^.left, lvl);
+      PreOrder(pTemp^.right, lvl);
+    end;
+
+end;
+
+
 
 end.

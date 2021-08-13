@@ -81,7 +81,7 @@ begin
     else
       begin
         AddNode(WorkTree,EdtInfo.Text,StrToInt(EdtKey.Text));
-        Show(EdtKey.Text);
+        Show(EdtKey.Text); //Вывод вершин в последовательности ввода пользователем
       end;
 
 end;
