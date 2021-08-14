@@ -44,19 +44,17 @@ begin
   if pNewNode = nil then
     begin
       CreateNode(pNewNode, dataField, keyField);
-      ShowMessage('Добавлен узел' + IntToStr(pNewNode^.key));
+      ShowMessage(IntToStr(keyField));
     end
     else
       if (keyField < pNewNode^.key) then
         begin
         AddNode(pNewNode^.left, dataField, keyField);
-        ShowMessage('Добавлен узел' + IntToStr(pNewNode^.key));
         end
         else
           if (keyField > pNewNode^.key) then
            begin
             AddNode(pNewNode^.right, dataField, keyField);
-            ShowMessage('Добавлен узел' + IntToStr(pNewNode^.key));
            end
               else
                 ShowMessage('Ключ неуникален. Попробуйте снова.');
