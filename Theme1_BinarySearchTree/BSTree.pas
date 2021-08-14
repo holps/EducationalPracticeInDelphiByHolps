@@ -44,7 +44,6 @@ begin
   if pNewNode = nil then
     begin
       CreateNode(pNewNode, dataField, keyField);
-      ShowMessage(IntToStr(keyField));
     end
     else
       if (keyField < pNewNode^.key) then
