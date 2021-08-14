@@ -42,13 +42,20 @@ procedure AddNode(var pNewNode: pTreeNode; dataField: TData; keyField: Integer);
 
 begin
   if pNewNode = nil then
-    CreateNode(pNewNode, dataField, keyField)
+    begin
+      CreateNode(pNewNode, dataField, keyField);
+      ShowMessage(IntToStr(keyField));
+    end
     else
       if (keyField < pNewNode^.key) then
-        AddNode(pNewNode^.left, dataField, keyField)
+        begin
+        AddNode(pNewNode^.left, dataField, keyField);
+        end
         else
           if (keyField > pNewNode^.key) then
-            AddNode(pNewNode^.right, dataField, keyField)
+           begin
+            AddNode(pNewNode^.right, dataField, keyField);
+           end
               else
                 ShowMessage('Ключ неуникален. Попробуйте снова.');
 

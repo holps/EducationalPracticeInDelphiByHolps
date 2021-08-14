@@ -72,8 +72,7 @@ end;
 
 
 //Процедура добавления вершины в дерево
-
-procedure TfMain.BtnAddNodeClick(Sender: TObject);
+ procedure TfMain.BtnAddNodeClick(Sender: TObject);
 
 begin
   if (EdtKey.Text = '') or (EdtInfo.Text = '') then
