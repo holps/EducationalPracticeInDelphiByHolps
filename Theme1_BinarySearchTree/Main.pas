@@ -37,12 +37,12 @@ type
     MemoInputKeySequence: TMemo;
     MemoOutTreeInDirectOrder: TMemo;
     MemoOutTreeInSymmetricOrder: TMemo;
+    procedure Show(const Msg: string);
     procedure BtnAddNodeClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    procedure Show(const Msg: string);
   end;
 
 var
@@ -55,13 +55,12 @@ implementation
 
 uses BSTree;
 
+//Процедура вывода на экран входной последовательности ключей дерева
 procedure TfMain.Show(const Msg: string);
 begin
   //MemoInputKeySequence.Lines.Add(Msg);
   MemoInputKeySequence.Lines.Text := MemoInputKeySequence.Text + EdtKey.Text + ' -> ';
 end;
-
-//Процедура вывода на экран входной последовательности ключей дерева
 
 
 //Процедура вывода на экран дерева в прямом порядке

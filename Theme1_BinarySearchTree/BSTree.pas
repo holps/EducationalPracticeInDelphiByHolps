@@ -73,11 +73,7 @@ procedure PreOrder(pTemp: pTreeNode; var lvl: Integer);
 begin
   if pTemp <> nil then
     begin
-      inc (lvl,5);
-      ShowMessage(IntToStr(lvl));
-      //вывод pTemp^.keyField
-      //воспользоваться функцией добавления пробелов
-      //и вывод на экран
+      //Обработка текущей вершины
 
       PreOrder(pTemp^.left, lvl);
       PreOrder(pTemp^.right, lvl);
