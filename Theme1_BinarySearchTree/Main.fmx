@@ -13,7 +13,7 @@ object fMain: TfMain
   object PnlManualGenData: TPanel
     Position.X = 8.000000000000000000
     Position.Y = 8.000000000000000000
-    Size.Width = 425.000000000000000000
+    Size.Width = 489.000000000000000000
     Size.Height = 81.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
@@ -42,9 +42,9 @@ object fMain: TfMain
       Position.Y = 48.000000000000000000
     end
     object BtnAddNode: TButton
-      Position.X = 200.000000000000000000
+      Position.X = 136.000000000000000000
       Position.Y = 48.000000000000000000
-      Size.Width = 96.000000000000000000
+      Size.Width = 100.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 4
@@ -53,9 +53,9 @@ object fMain: TfMain
     end
   end
   object PnlAutoGenData: TPanel
-    Position.X = 472.000000000000000000
+    Position.X = 520.000000000000000000
     Position.Y = 8.000000000000000000
-    Size.Width = 537.000000000000000000
+    Size.Width = 489.000000000000000000
     Size.Height = 81.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
@@ -82,14 +82,14 @@ object fMain: TfMain
       TabOrder = 3
       Position.X = 8.000000000000000000
       Position.Y = 48.000000000000000000
-      Size.Width = 161.000000000000000000
+      Size.Width = 150.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
     end
     object BtnFillTree: TButton
       Position.X = 192.000000000000000000
       Position.Y = 48.000000000000000000
-      Size.Width = 169.000000000000000000
+      Size.Width = 200.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 4
@@ -99,7 +99,7 @@ object fMain: TfMain
   object PnlSearchNodeByKey: TPanel
     Position.X = 8.000000000000000000
     Position.Y = 96.000000000000000000
-    Size.Width = 425.000000000000000000
+    Size.Width = 489.000000000000000000
     Size.Height = 73.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
@@ -130,7 +130,7 @@ object fMain: TfMain
     object BtnSearchNodeByKey: TButton
       Position.X = 136.000000000000000000
       Position.Y = 40.000000000000000000
-      Size.Width = 97.000000000000000000
+      Size.Width = 100.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 4
@@ -139,9 +139,9 @@ object fMain: TfMain
     end
   end
   object PnlMgmtData: TPanel
-    Position.X = 472.000000000000000000
+    Position.X = 520.000000000000000000
     Position.Y = 96.000000000000000000
-    Size.Width = 537.000000000000000000
+    Size.Width = 489.000000000000000000
     Size.Height = 73.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 4
@@ -155,13 +155,32 @@ object fMain: TfMain
       TabOrder = 1
     end
     object BtnResetBinarySearchTree: TButton
-      Position.X = 16.000000000000000000
+      Position.X = 296.000000000000000000
       Position.Y = 40.000000000000000000
-      Size.Width = 81.000000000000000000
+      Size.Width = 100.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
       Text = #1057#1073#1088#1086#1089
+    end
+    object BtnPreOrderBinarySearchTree: TButton
+      Position.X = 8.000000000000000000
+      Position.Y = 40.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = #1055#1088#1103#1084#1086#1081' '#1086#1073#1093#1086#1076
+      OnClick = BtnPreOrderBinarySearchTreeClick
+    end
+    object BtnInOrderBinarySearchTree: TButton
+      Position.X = 128.000000000000000000
+      Position.Y = 40.000000000000000000
+      Size.Width = 150.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      Text = #1057#1080#1084#1084#1077#1090#1088#1080#1095#1085#1099#1081' '#1086#1073#1093#1086#1076
     end
   end
   object PnlOutDataVisualView: TPanel

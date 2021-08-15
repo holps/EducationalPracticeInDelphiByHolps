@@ -35,10 +35,13 @@ type
     MemoInputKeySequence: TMemo;
     MemoOutTreeInDirectOrder: TMemo;
     MemoOutTreeInSymmetricOrder: TMemo;
+    BtnPreOrderBinarySearchTree: TButton;
+    BtnInOrderBinarySearchTree: TButton;
     procedure Show(const Msg: string);
     procedure BtnAddNodeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BtnSearchNodeByKeyClick(Sender: TObject);
+    procedure BtnPreOrderBinarySearchTreeClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -69,7 +72,11 @@ begin
 end;
 
 
-//Процедура вывода на экран дерева в прямом порядке
+//Вывод на экран дерева в прямом порядке
+procedure TfMain.BtnPreOrderBinarySearchTreeClick(Sender: TObject);
+begin
+  PreOrder(WorkTree);
+end;
 
 
 //Процедура вывода на экран дерева в симметричном порядке

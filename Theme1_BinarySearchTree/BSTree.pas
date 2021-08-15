@@ -20,6 +20,7 @@ type
   procedure CreateNode(var pNewNode: pTreeNode; keyField: Integer);
   procedure AddNode(var pNewNode: pTreeNode; keyField: Integer);
   function SearchKey(workKey: Integer): pTreeNode;
+  procedure PreOrder(pTemp: pTreeNode);
 
 var
   WorkTree: pTreeNode;
@@ -110,18 +111,17 @@ begin
 end;
 
 //Рекурсивная реализация обхода в прямом направлении
-procedure PreOrder(pTemp: pTreeNode; var lvl: Integer);
+procedure PreOrder(pTemp: pTreeNode);
 begin
   if pTemp <> nil then
     begin
       //Обработка текущей вершины
-
-      PreOrder(pTemp^.left, lvl);
-      PreOrder(pTemp^.right, lvl);
+      ShowMessage(IntToStr(pTemp^.key));
+      PreOrder(pTemp^.left);
+      PreOrder(pTemp^.right);
     end;
 
 end;
-
 
 
 end.
