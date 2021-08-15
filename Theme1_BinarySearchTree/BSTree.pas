@@ -57,14 +57,14 @@ begin
         end
         else
           if (keyField > pNewNode^.key) then
-           begin
-            AddNode(pNewNode^.right, keyField);
-           end
-              else
-                begin
-                  Inc(pNewNode^.counterKey); //<<Увеличиваем счетчик числа появления ключа
-                  ShowMessage('Число появлений ключа: '+ IntToStr(pNewNode^.key) + ' равно: ' + IntToStr(pNewNode^.counterKey));
-                end;
+            begin
+              AddNode(pNewNode^.right, keyField);
+            end
+             else
+               begin
+                 Inc(pNewNode^.counterKey); //<<Увеличиваем счетчик числа появления ключа
+                 ShowMessage('Число появлений ключа: '+ IntToStr(pNewNode^.key) + ' равно: ' + IntToStr(pNewNode^.counterKey));
+               end;
 
 end;
 
@@ -100,7 +100,6 @@ end;
     if (result = nil) then ShowMessage('Такого ключа в дереве нет');
 
  end;
-
 
 //Дополнение слева строки пробелами
 function SpaceLeftString(src: string; colSpace: Integer): string;
