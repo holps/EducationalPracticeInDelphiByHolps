@@ -128,9 +128,9 @@ procedure InOrder(pTemp: pTreeNode);
 begin
   if pTemp <> nil then
     begin
-      PreOrder(pTemp^.left);
+      InOrder(pTemp^.left);
       ShowMessage(IntToStr(pTemp^.key));//<<Обработка текущей вершины
-      PreOrder(pTemp^.right);
+      InOrder(pTemp^.right);
     end;
 
 end;
