@@ -26,6 +26,12 @@ var
 
 implementation
 
+//Существует ли вообще дерево
+function EmptyTree(BSTree: pTreeNode): boolean;
+begin
+  Result := BSTree = nil;
+end;
+
 //Создание нового узла
 procedure CreateNode(var pNewNode: pTreeNode; keyField: Integer);
 begin
@@ -67,14 +73,20 @@ end;
  var pTemp: pTreeNode;
  begin
    pTemp := WorkTree;
+   if EmptyTree(pTemp) then  //<<Если дерева нет
+     begin
+       ShowMessage('Дерево не построено');
+       Result := nil;
+       exit;
+     end;
    result := nil;
    while pTemp<>nil do
-    if(workKey = pTemp^.key) then
-      begin
-        result := pTemp;
-        ShowMessage('Вершина с ключом ' + IntToStr(pTemp^.key) + ' найдена в дереве. Число появлений: ' + IntToStr(pTemp^.counterKey) + '.');
-        break;
-      end
+     if(workKey = pTemp^.key) then
+       begin
+         result := pTemp;
+         ShowMessage('Вершина с ключом ' + IntToStr(pTemp^.key) + ' найдена в дереве. Число появлений: ' + IntToStr(pTemp^.counterKey) + '.');
+         break;
+       end
     else
       if (workKey < pTemp^.key) then
         begin

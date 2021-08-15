@@ -100,7 +100,7 @@ procedure TfMain.BtnSearchNodeByKeyClick(Sender: TObject);
 begin
   if (EdtSearchKey.Text = '') then
     begin
-      ShowMessage('Не задан ключ узла!');
+      ShowMessage('Требуется ввести значение!');
       EdtSearchKey.SetFocus;
     end
    else
