@@ -9,6 +9,7 @@ type
   pTreeNode = ^TNode;
   TNode = record
       key: Integer;
+      counterKey: Integer;
       Left: pTreeNode;
       Right: pTreeNode;
   end;
@@ -30,6 +31,7 @@ procedure CreateNode(var pNewNode: pTreeNode; keyField: Integer);
 begin
   New(pNewNode);
   pNewNode^.key := keyField;
+  pNewNode^.counterKey := 1;
   pNewNode^.Left := nil;
   pNewNode^.Right := nil;
 end;
@@ -45,7 +47,7 @@ begin
     else
       if (keyField < pNewNode^.key) then
         begin
-        AddNode(pNewNode^.left, keyField);
+          AddNode(pNewNode^.left, keyField);
         end
         else
           if (keyField > pNewNode^.key) then
@@ -53,7 +55,11 @@ begin
             AddNode(pNewNode^.right, keyField);
            end
               else
-                ShowMessage('Ключ неуникален. Попробуйте снова.');
+                begin
+                  Inc(pNewNode^.counterKey);
+                  ShowMessage('Число появлений ключа: '+ IntToStr(pNewNode^.key) + ' равно: ' + IntToStr(pNewNode^.counterKey));
+                  //ShowMessage('Ключ неуникален. Попробуйте снова.');
+                end;
 
 end;
 
