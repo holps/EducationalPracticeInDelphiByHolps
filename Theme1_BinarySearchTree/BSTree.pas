@@ -21,6 +21,7 @@ type
   procedure AddNode(var pNewNode: pTreeNode; keyField: Integer);
   function SearchKey(workKey: Integer): pTreeNode;
   procedure PreOrder(pTemp: pTreeNode);
+  procedure InOrder(pTemp: pTreeNode);
 
 var
   WorkTree: pTreeNode;
@@ -110,18 +111,27 @@ begin
     Result := ' ' + Result;
 end;
 
-//Рекурсивная реализация обхода в прямом направлении
+//Рекурсивная реализация обхода дерева в прямом направлении
 procedure PreOrder(pTemp: pTreeNode);
 begin
   if pTemp <> nil then
     begin
-      //Обработка текущей вершины
-      ShowMessage(IntToStr(pTemp^.key));
+      ShowMessage(IntToStr(pTemp^.key));//<<Обработка текущей вершины
       PreOrder(pTemp^.left);
       PreOrder(pTemp^.right);
     end;
 
 end;
 
+//Рекурсивная реализация обхода дерева в симметричном направлении
+procedure InOrder(pTemp: pTreeNode);
+begin
+  if pTemp <> nil then
+    begin
+      PreOrder(pTemp^.left);
+      ShowMessage(IntToStr(pTemp^.key));//<<Обработка текущей вершины
+      PreOrder(pTemp^.right);
+    end;
 
+end;
 end.

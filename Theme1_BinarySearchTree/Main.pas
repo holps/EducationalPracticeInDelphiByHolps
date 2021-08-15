@@ -42,6 +42,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure BtnSearchNodeByKeyClick(Sender: TObject);
     procedure BtnPreOrderBinarySearchTreeClick(Sender: TObject);
+    procedure BtnInOrderBinarySearchTreeClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -80,6 +81,10 @@ end;
 
 
 //Процедура вывода на экран дерева в симметричном порядке
+procedure TfMain.BtnInOrderBinarySearchTreeClick(Sender: TObject);
+begin
+  InOrder(WorkTree);
+end;
 
 
 
