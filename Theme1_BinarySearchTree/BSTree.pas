@@ -56,7 +56,7 @@ begin
            end
               else
                 begin
-                  Inc(pNewNode^.counterKey);
+                  Inc(pNewNode^.counterKey); //Увеличиваем счетчик числа появления ключа
                   ShowMessage('Число появлений ключа: '+ IntToStr(pNewNode^.key) + ' равно: ' + IntToStr(pNewNode^.counterKey));
                   //ShowMessage('Ключ неуникален. Попробуйте снова.');
                 end;

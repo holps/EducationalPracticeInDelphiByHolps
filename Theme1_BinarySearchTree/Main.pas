@@ -37,6 +37,7 @@ type
     MemoOutTreeInSymmetricOrder: TMemo;
     procedure Show(const Msg: string);
     procedure BtnAddNodeClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,6 +55,11 @@ implementation
 uses BSTree;
 
 //Процедура вывода на экран входной последовательности ключей дерева
+procedure TfMain.FormShow(Sender: TObject);
+begin
+    EdtKey.SetFocus;
+end;
+
 procedure TfMain.Show(const Msg: string);
 begin
   //MemoInputKeySequence.Lines.Add(Msg);
@@ -73,11 +79,16 @@ end;
 
 begin
   if (EdtKey.Text = '') then
-    ShowMessage('Не заданы ключ или данные нового узла!')
+    begin
+      ShowMessage('Не задан ключ нового узла!');
+      EdtKey.SetFocus;
+    end
     else
       begin
         AddNode(WorkTree,StrToInt(EdtKey.Text));
         Show(EdtKey.Text); //Вывод вершин в последовательности ввода пользователем
+        EdtKey.Text := '';
+        EdtKey.SetFocus;
       end;
 end;
 

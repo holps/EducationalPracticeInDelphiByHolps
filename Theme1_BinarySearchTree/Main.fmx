@@ -8,6 +8,7 @@ object fMain: TfMain
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnShow = FormShow
   DesignerMasterStyle = 0
   object PnlManualGenData: TPanel
     Position.X = 8.000000000000000000
