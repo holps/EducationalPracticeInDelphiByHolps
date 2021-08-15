@@ -1,9 +1,12 @@
 //Модуль работы с поисковым деревом
+
 unit BSTree;
 
 interface
-  uses
+
+uses
     FMX.Dialogs, SysUtils;
+
 type
 
   pTreeNode = ^TNode;
@@ -14,20 +17,17 @@ type
       Right: pTreeNode;
   end;
 
+  procedure CreateNode(var pNewNode: pTreeNode; keyField: Integer);
+  procedure AddNode(var pNewNode: pTreeNode; keyField: Integer);
+  function SearchKey(workKey: Integer): pTreeNode;
+
 var
   WorkTree: pTreeNode;
-
-//Создание нового узла
-procedure CreateNode(var pNewNode: pTreeNode; keyField: Integer);
-
-//Добавление узла
-procedure AddNode(var pNewNode: pTreeNode; keyField: Integer);
 
 implementation
 
 //Создание нового узла
 procedure CreateNode(var pNewNode: pTreeNode; keyField: Integer);
-
 begin
   New(pNewNode);
   pNewNode^.key := keyField;
@@ -56,12 +56,39 @@ begin
            end
               else
                 begin
-                  Inc(pNewNode^.counterKey); //Увеличиваем счетчик числа появления ключа
+                  Inc(pNewNode^.counterKey); //<<Увеличиваем счетчик числа появления ключа
                   ShowMessage('Число появлений ключа: '+ IntToStr(pNewNode^.key) + ' равно: ' + IntToStr(pNewNode^.counterKey));
-                  //ShowMessage('Ключ неуникален. Попробуйте снова.');
                 end;
 
 end;
+
+//Циклический поиск заданной вершины
+ function SearchKey(workKey: Integer): pTreeNode;
+ var pTemp: pTreeNode;
+ begin
+   pTemp := WorkTree;
+   result := nil;
+   while pTemp<>nil do
+    if(workKey = pTemp^.key) then
+      begin
+        result := pTemp;
+        ShowMessage('Вершина с ключом ' + IntToStr(pTemp^.key) + ' найдена в дереве. Число появлений: ' + IntToStr(pTemp^.counterKey) + '.');
+        break;
+      end
+    else
+      if (workKey < pTemp^.key) then
+        begin
+          pTemp := pTemp^.left
+        end
+      else
+        if (workKey > pTemp^.key) then
+          begin
+            pTemp := pTemp^.right;
+          end;
+    if (result = nil) then ShowMessage('Такого ключа в дереве нет');
+
+ end;
+
 
 //Дополнение слева строки пробелами
 function SpaceLeftString(src: string; colSpace: Integer): string;

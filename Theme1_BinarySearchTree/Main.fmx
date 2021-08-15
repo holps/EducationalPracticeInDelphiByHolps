@@ -135,6 +135,7 @@ object fMain: TfMain
       Size.PlatformDefault = False
       TabOrder = 4
       Text = #1053#1072#1081#1090#1080' '#1087#1086' '#1082#1083#1102#1095#1091
+      OnClick = BtnSearchNodeByKeyClick
     end
   end
   object PnlMgmtData: TPanel

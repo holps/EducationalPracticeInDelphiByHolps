@@ -38,6 +38,7 @@ type
     procedure Show(const Msg: string);
     procedure BtnAddNodeClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure BtnSearchNodeByKeyClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,15 +55,16 @@ implementation
 
 uses BSTree;
 
-//Процедура вывода на экран входной последовательности ключей дерева
+//Фокус при открытии формы на ввод ключа
 procedure TfMain.FormShow(Sender: TObject);
 begin
     EdtKey.SetFocus;
 end;
 
+
+//Форматирование текста вывода последовательности ключей
 procedure TfMain.Show(const Msg: string);
 begin
-  //MemoInputKeySequence.Lines.Add(Msg);
   MemoInputKeySequence.Lines.Text := MemoInputKeySequence.Text + EdtKey.Text + ' -> ';
 end;
 
@@ -74,7 +76,7 @@ end;
 
 
 
-//Процедура добавления вершины в дерево
+//Вывод на экран входной последовательности ключей
  procedure TfMain.BtnAddNodeClick(Sender: TObject);
 
 begin
@@ -83,13 +85,29 @@ begin
       ShowMessage('Не задан ключ нового узла!');
       EdtKey.SetFocus;
     end
-    else
-      begin
-        AddNode(WorkTree,StrToInt(EdtKey.Text));
-        Show(EdtKey.Text); //Вывод вершин в последовательности ввода пользователем
-        EdtKey.Text := '';
-        EdtKey.SetFocus;
-      end;
+  else
+    begin
+      AddNode(WorkTree,StrToInt(EdtKey.Text));
+      Show(EdtKey.Text); //Вывод вершин в последовательности ввода пользователем
+      EdtKey.Text := '';
+      EdtKey.SetFocus;
+    end;
 end;
+
+
+//Вывод на экран найденной вершины
+procedure TfMain.BtnSearchNodeByKeyClick(Sender: TObject);
+begin
+  if (EdtSearchKey.Text = '') then
+    begin
+      ShowMessage('Не задан ключ узла!');
+      EdtSearchKey.SetFocus;
+    end
+   else
+     begin
+       SearchKey(EdtSearchKey.Text.ToInteger);
+     end;
+end;
+
 
 end.
