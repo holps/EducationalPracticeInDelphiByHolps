@@ -5,11 +5,9 @@ interface
   uses
     FMX.Dialogs, SysUtils;
 type
-  TData = string;
 
   pTreeNode = ^TNode;
   TNode = record
-      data: TData;
       key: Integer;
       Left: pTreeNode;
       Right: pTreeNode;
@@ -19,41 +17,40 @@ var
   WorkTree: pTreeNode;
 
 //Создание нового узла
-procedure CreateNode(var pNewNode: pTreeNode; dataField: TData; keyField: Integer);
+procedure CreateNode(var pNewNode: pTreeNode; keyField: Integer);
 
 //Добавление узла
-procedure AddNode(var pNewNode: pTreeNode; dataField: TData; keyField: Integer);
+procedure AddNode(var pNewNode: pTreeNode; keyField: Integer);
 
 implementation
 
 //Создание нового узла
-procedure CreateNode(var pNewNode: pTreeNode; dataField: TData; keyField: Integer);
+procedure CreateNode(var pNewNode: pTreeNode; keyField: Integer);
 
 begin
   New(pNewNode);
-  pNewNode^.data := dataField;
   pNewNode^.key := keyField;
   pNewNode^.Left := nil;
   pNewNode^.Right := nil;
 end;
 
 //Рекурсивное добавление узла
-procedure AddNode(var pNewNode: pTreeNode; dataField: TData; keyField: Integer);
+procedure AddNode(var pNewNode: pTreeNode; keyField: Integer);
 
 begin
   if pNewNode = nil then
     begin
-      CreateNode(pNewNode, dataField, keyField);
+      CreateNode(pNewNode, keyField);
     end
     else
       if (keyField < pNewNode^.key) then
         begin
-        AddNode(pNewNode^.left, dataField, keyField);
+        AddNode(pNewNode^.left, keyField);
         end
         else
           if (keyField > pNewNode^.key) then
            begin
-            AddNode(pNewNode^.right, dataField, keyField);
+            AddNode(pNewNode^.right, keyField);
            end
               else
                 ShowMessage('Ключ неуникален. Попробуйте снова.');

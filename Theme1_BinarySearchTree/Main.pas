@@ -16,8 +16,6 @@ type
     LblPnlAutoGenData: TLabel;
     LblKey: TLabel;
     EdtKey: TEdit;
-    EdtInfo: TEdit;
-    LblInfo: TLabel;
     BtnAddNode: TButton;
     LblNumberOfNodes: TLabel;
     EdtNumberOfNodes: TEdit;
@@ -74,11 +72,11 @@ end;
  procedure TfMain.BtnAddNodeClick(Sender: TObject);
 
 begin
-  if (EdtKey.Text = '') or (EdtInfo.Text = '') then
+  if (EdtKey.Text = '') then
     ShowMessage('Не заданы ключ или данные нового узла!')
     else
       begin
-        AddNode(WorkTree,EdtInfo.Text,StrToInt(EdtKey.Text));
+        AddNode(WorkTree,StrToInt(EdtKey.Text));
         Show(EdtKey.Text); //Вывод вершин в последовательности ввода пользователем
       end;
 end;

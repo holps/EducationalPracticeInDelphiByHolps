@@ -12,7 +12,7 @@ object fMain: TfMain
   object PnlManualGenData: TPanel
     Position.X = 8.000000000000000000
     Position.Y = 8.000000000000000000
-    Size.Width = 505.000000000000000000
+    Size.Width = 425.000000000000000000
     Size.Height = 81.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
@@ -22,7 +22,7 @@ object fMain: TfMain
       Size.Width = 217.000000000000000000
       Size.Height = 17.000000000000000000
       Size.PlatformDefault = False
-      Text = #1041#1083#1086#1082' '#1074#1074#1086#1076#1072' '#1076#1072#1085#1085#1099#1093' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1077#1084
+      Text = #1041#1083#1086#1082' '#1074#1074#1086#1076#1072' '#1082#1083#1102#1095#1077#1081' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1077#1084
       TabOrder = 1
     end
     object LblKey: TLabel
@@ -40,39 +40,21 @@ object fMain: TfMain
       Position.X = 8.000000000000000000
       Position.Y = 48.000000000000000000
     end
-    object EdtInfo: TEdit
-      Touch.InteractiveGestures = [LongTap, DoubleTap]
-      TabOrder = 4
-      Position.X = 136.000000000000000000
-      Position.Y = 48.000000000000000000
-      Size.Width = 225.000000000000000000
-      Size.Height = 22.000000000000000000
-      Size.PlatformDefault = False
-    end
-    object LblInfo: TLabel
-      Position.X = 136.000000000000000000
-      Position.Y = 32.000000000000000000
-      Size.Width = 73.000000000000000000
-      Size.Height = 17.000000000000000000
-      Size.PlatformDefault = False
-      Text = #1044#1072#1085#1085#1099#1077':'
-      TabOrder = 5
-    end
     object BtnAddNode: TButton
-      Position.X = 384.000000000000000000
+      Position.X = 200.000000000000000000
       Position.Y = 48.000000000000000000
       Size.Width = 96.000000000000000000
       Size.Height = 22.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 6
+      TabOrder = 4
       Text = #1044#1086#1073#1072#1074#1080#1090#1100' '#1091#1079#1077#1083
       OnClick = BtnAddNodeClick
     end
   end
   object PnlAutoGenData: TPanel
-    Position.X = 520.000000000000000000
+    Position.X = 472.000000000000000000
     Position.Y = 8.000000000000000000
-    Size.Width = 489.000000000000000000
+    Size.Width = 537.000000000000000000
     Size.Height = 81.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
@@ -116,7 +98,7 @@ object fMain: TfMain
   object PnlSearchNodeByKey: TPanel
     Position.X = 8.000000000000000000
     Position.Y = 96.000000000000000000
-    Size.Width = 505.000000000000000000
+    Size.Width = 425.000000000000000000
     Size.Height = 73.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
@@ -155,9 +137,9 @@ object fMain: TfMain
     end
   end
   object PnlMgmtData: TPanel
-    Position.X = 520.000000000000000000
+    Position.X = 472.000000000000000000
     Position.Y = 96.000000000000000000
-    Size.Width = 489.000000000000000000
+    Size.Width = 537.000000000000000000
     Size.Height = 73.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 4
