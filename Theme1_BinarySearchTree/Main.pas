@@ -33,8 +33,8 @@ type
     LblOutTreeInDirectOrder: TLabel;
     LblOutTreeInSymmetricOrder: TLabel;
     MemoInputKeySequence: TMemo;
-    MemoOutTreeInDirectOrder: TMemo;
-    MemoOutTreeInSymmetricOrder: TMemo;
+    MemoOutTreePreOrder: TMemo;
+    MemoOutTreeInOrder: TMemo;
     BtnPreOrderBinarySearchTree: TButton;
     BtnInOrderBinarySearchTree: TButton;
     procedure Show(const Msg: string);
@@ -43,6 +43,7 @@ type
     procedure BtnSearchNodeByKeyClick(Sender: TObject);
     procedure BtnPreOrderBinarySearchTreeClick(Sender: TObject);
     procedure BtnInOrderBinarySearchTreeClick(Sender: TObject);
+    procedure BtnResetBinarySearchTreeClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -80,6 +81,8 @@ begin
   LvlRootNode := 0;
   PreOrder(WorkTree, LvlRootNode);
 end;
+
+
 
 
 //Процедура вывода на экран дерева в симметричном порядке
@@ -122,7 +125,18 @@ begin
    else
      begin
        SearchKey(EdtSearchKey.Text.ToInteger);
+       EdtSearchKey.Text := '';
      end;
+end;
+
+//Сброс
+procedure TfMain.BtnResetBinarySearchTreeClick(Sender: TObject);
+begin
+  MemoInputKeySequence.Lines.Clear;
+  MemoOutTreePreOrder.Lines.Clear;
+  MemoOutTreeInOrder.Lines.Clear;
+  FreeBSTree(WorkTree);
+  EdtKey.SetFocus;
 end;
 
 

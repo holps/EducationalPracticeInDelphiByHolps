@@ -162,6 +162,7 @@ object fMain: TfMain
       Size.PlatformDefault = False
       TabOrder = 2
       Text = #1057#1073#1088#1086#1089
+      OnClick = BtnResetBinarySearchTreeClick
     end
     object BtnPreOrderBinarySearchTree: TButton
       Position.X = 8.000000000000000000
@@ -231,7 +232,7 @@ object fMain: TfMain
       Viewport.Width = 253.000000000000000000
       Viewport.Height = 429.000000000000000000
     end
-    object MemoOutTreeInDirectOrder: TMemo
+    object MemoOutTreePreOrder: TMemo
       Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
       DataDetectorTypes = []
       Position.X = 272.000000000000000000
@@ -243,7 +244,7 @@ object fMain: TfMain
       Viewport.Width = 341.000000000000000000
       Viewport.Height = 429.000000000000000000
     end
-    object MemoOutTreeInSymmetricOrder: TMemo
+    object MemoOutTreeInOrder: TMemo
       Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
       DataDetectorTypes = []
       Position.X = 624.000000000000000000

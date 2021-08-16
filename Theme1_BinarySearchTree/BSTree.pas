@@ -22,6 +22,7 @@ type
   function SearchKey(workKey: Integer): pTreeNode;
   procedure PreOrder(pTemp: pTreeNode; LvlNode: Integer);
   procedure InOrder(pTemp: pTreeNode; LvlNode: Integer);
+  procedure FreeBSTree (var pTemp: pTreeNode);
 
 var
   WorkTree: pTreeNode;
@@ -135,6 +136,17 @@ begin
       InOrder(pTemp^.right,LvlNode);
     end;
 
+end;
+
+//Рекурсивная процедура освобождения памяти, занятой деревом. Удаление дерева
+procedure FreeBSTree (var pTemp: pTreeNode);
+begin
+if pTemp = nil then
+  Exit;
+  FreeBSTree(pTemp^.left);
+  FreeBSTree(pTemp^.right);
+  Dispose(pTemp);
+  pTemp := nil;
 end;
 
 end.
