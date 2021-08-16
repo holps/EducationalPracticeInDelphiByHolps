@@ -20,8 +20,8 @@ type
   procedure CreateNode(var pNewNode: pTreeNode; keyField: Integer);
   procedure AddNode(var pNewNode: pTreeNode; keyField: Integer);
   function SearchKey(workKey: Integer): pTreeNode;
-  procedure PreOrder(pTemp: pTreeNode);
-  procedure InOrder(pTemp: pTreeNode);
+  procedure PreOrder(pTemp: pTreeNode; LvlNode: Integer);
+  procedure InOrder(pTemp: pTreeNode; LvlNode: Integer);
 
 var
   WorkTree: pTreeNode;
@@ -112,26 +112,29 @@ begin
 end;
 
 //Рекурсивная реализация обхода дерева в прямом направлении
-procedure PreOrder(pTemp: pTreeNode);
+procedure PreOrder(pTemp: pTreeNode; LvlNode: Integer);
 begin
   if pTemp <> nil then
     begin
-      ShowMessage(IntToStr(pTemp^.key));//<<Обработка текущей вершины
-      PreOrder(pTemp^.left);
-      PreOrder(pTemp^.right);
+      ShowMessage(IntToStr(pTemp^.key) + 'Уровень вершины: ' + IntToStr(LvlNode));//<<Обработка текущей вершины
+      Inc(LvlNode);
+      PreOrder(pTemp^.left, LvlNode);
+      PreOrder(pTemp^.right, LvlNode);
     end;
 
 end;
 
 //Рекурсивная реализация обхода дерева в симметричном направлении
-procedure InOrder(pTemp: pTreeNode);
+procedure InOrder(pTemp: pTreeNode; LvlNode: Integer);
 begin
   if pTemp <> nil then
     begin
-      InOrder(pTemp^.left);
-      ShowMessage(IntToStr(pTemp^.key));//<<Обработка текущей вершины
-      InOrder(pTemp^.right);
+      Inc(LvlNode);
+      InOrder(pTemp^.left, LvlNode);
+      ShowMessage(IntToStr(pTemp^.key) + 'Уровень вершины: ' + IntToStr(LvlNode));//<<Обработка текущей вершины
+      InOrder(pTemp^.right,LvlNode);
     end;
 
 end;
+
 end.

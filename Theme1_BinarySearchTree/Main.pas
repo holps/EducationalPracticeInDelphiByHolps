@@ -75,15 +75,19 @@ end;
 
 //Вывод на экран дерева в прямом порядке
 procedure TfMain.BtnPreOrderBinarySearchTreeClick(Sender: TObject);
+var LvlRootNode: Integer;
 begin
-  PreOrder(WorkTree);
+  LvlRootNode := 0;
+  PreOrder(WorkTree, LvlRootNode);
 end;
 
 
 //Процедура вывода на экран дерева в симметричном порядке
 procedure TfMain.BtnInOrderBinarySearchTreeClick(Sender: TObject);
+var LvlRootNode: Integer;
 begin
-  InOrder(WorkTree);
+  LvlRootNode := -1;
+  InOrder(WorkTree, LvlRootNode);
 end;
 
 
