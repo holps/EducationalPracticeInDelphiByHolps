@@ -77,9 +77,12 @@ end;
 //Вывод на экран дерева в прямом порядке
 procedure TfMain.BtnPreOrderBinarySearchTreeClick(Sender: TObject);
 var LvlRootNode: Integer;
+s: string;
 begin
+  s := '';
   LvlRootNode := 0;
-  PreOrder(WorkTree, LvlRootNode);
+  PreOrder(WorkTree, LvlRootNode, s);
+  MemoOutTreePreOrder.Lines.Add(s);
 end;
 
 

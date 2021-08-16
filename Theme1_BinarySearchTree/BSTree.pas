@@ -20,7 +20,7 @@ type
   procedure CreateNode(var pNewNode: pTreeNode; keyField: Integer);
   procedure AddNode(var pNewNode: pTreeNode; keyField: Integer);
   function SearchKey(workKey: Integer): pTreeNode;
-  procedure PreOrder(pTemp: pTreeNode; LvlNode: Integer);
+  procedure PreOrder(pTemp: pTreeNode; LvlNode: Integer; var str: string);
   procedure InOrder(pTemp: pTreeNode; LvlNode: Integer);
   procedure FreeBSTree (var pTemp: pTreeNode);
 
@@ -105,22 +105,40 @@ end;
  end;
 
 //Дополнение слева строки пробелами
+{
 function SpaceLeftString(src: string; colSpace: Integer): string;
 begin
   Result := Src;
   while Length(Result) < colSpace do
     Result := ' ' + Result;
 end;
+}
+function CorrectString ({SrcString: string; }ColSpace: Integer): string;
+begin
+  Result := '';//SrcString;
+  while ColSpace > 0 do
+    begin
+      Result := ' ' + Result;
+      Dec(ColSpace);
+    end;
+end;
 
 //Рекурсивная реализация обхода дерева в прямом направлении
-procedure PreOrder(pTemp: pTreeNode; LvlNode: Integer);
+procedure PreOrder(pTemp: pTreeNode; LvlNode: Integer; var str: string);
+var
+  Spaces: Integer;
 begin
   if pTemp <> nil then
     begin
-      ShowMessage(IntToStr(pTemp^.key) + 'Уровень вершины: ' + IntToStr(LvlNode));//<<Обработка текущей вершины
+      //ShowMessage(IntToStr(pTemp^.key) + 'Уровень вершины: ' + IntToStr(LvlNode));//<<Обработка текущей вершины
+      //str := str + IntToStr(pTemp^.key)+ #13#10;
+      Spaces := (LvlNode - 0) * 5;
+      //ShowMessage('Количество пробелов:' + IntToStr(Spaces));
+      str := str + CorrectString({str, }Spaces)+ IntToStr(pTemp^.key) + #13#10;
+      //ShowMessage(str);
       Inc(LvlNode);
-      PreOrder(pTemp^.left, LvlNode);
-      PreOrder(pTemp^.right, LvlNode);
+      PreOrder(pTemp^.left, LvlNode, str);
+      PreOrder(pTemp^.right, LvlNode, str);
     end;
 
 end;
