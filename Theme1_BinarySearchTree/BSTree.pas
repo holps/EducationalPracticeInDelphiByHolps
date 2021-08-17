@@ -21,7 +21,7 @@ type
   procedure AddNode(var pNewNode: pTreeNode; keyField: Integer);
   function SearchKey(workKey: Integer): pTreeNode;
   procedure PreOrder(pTemp: pTreeNode; LvlNode: Integer; var str: string);
-  procedure InOrder(pTemp: pTreeNode; LvlNode: Integer);
+  procedure InOrder(pTemp: pTreeNode; LvlNode: Integer;var str: string);
   procedure FreeBSTree (var pTemp: pTreeNode);
 
 var
@@ -105,14 +105,6 @@ end;
  end;
 
 //Дополнение слева строки пробелами
-{
-function SpaceLeftString(src: string; colSpace: Integer): string;
-begin
-  Result := Src;
-  while Length(Result) < colSpace do
-    Result := ' ' + Result;
-end;
-}
 function CorrectString ({SrcString: string; }ColSpace: Integer): string;
 begin
   Result := '';//SrcString;
@@ -132,7 +124,7 @@ begin
     begin
       //ShowMessage(IntToStr(pTemp^.key) + 'Уровень вершины: ' + IntToStr(LvlNode));//<<Обработка текущей вершины
       //str := str + IntToStr(pTemp^.key)+ #13#10;
-      Spaces := (LvlNode - 0) * 5;
+      Spaces := (LvlNode - 0) * 5; //<<Подсчет пробелов на каждом уровне
       //ShowMessage('Количество пробелов:' + IntToStr(Spaces));
       str := str + CorrectString({str, }Spaces)+ IntToStr(pTemp^.key) + #13#10;
       //ShowMessage(str);
@@ -144,17 +136,22 @@ begin
 end;
 
 //Рекурсивная реализация обхода дерева в симметричном направлении
-procedure InOrder(pTemp: pTreeNode; LvlNode: Integer);
+procedure InOrder(pTemp: pTreeNode; LvlNode: Integer; var str: string);
+var
+  Spaces: Integer;
 begin
   if pTemp <> nil then
     begin
+      Spaces := (LvlNode - 0) * 5;
       Inc(LvlNode);
-      InOrder(pTemp^.left, LvlNode);
-      ShowMessage(IntToStr(pTemp^.key) + 'Уровень вершины: ' + IntToStr(LvlNode));//<<Обработка текущей вершины
-      InOrder(pTemp^.right,LvlNode);
+      InOrder(pTemp^.left, LvlNode, str);
+      //ShowMessage(IntToStr(pTemp^.key) + 'Уровень вершины: ' + IntToStr(LvlNode));//<<Обработка текущей вершины
+      str := str + CorrectString(Spaces)+ IntToStr(pTemp^.key) + #13#10;
+      InOrder(pTemp^.right,LvlNode, str);
     end;
 
 end;
+
 
 //Рекурсивная процедура освобождения памяти, занятой деревом. Удаление дерева
 procedure FreeBSTree (var pTemp: pTreeNode);

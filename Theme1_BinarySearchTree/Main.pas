@@ -91,9 +91,12 @@ end;
 //Процедура вывода на экран дерева в симметричном порядке
 procedure TfMain.BtnInOrderBinarySearchTreeClick(Sender: TObject);
 var LvlRootNode: Integer;
+s: string;
 begin
-  LvlRootNode := -1;
-  InOrder(WorkTree, LvlRootNode);
+  s := '';
+  LvlRootNode := 0;
+  InOrder(WorkTree, LvlRootNode, s);
+  MemoOutTreeInOrder.Lines.Add(s);
 end;
 
 
@@ -131,6 +134,7 @@ begin
        EdtSearchKey.Text := '';
      end;
 end;
+
 
 //Сброс
 procedure TfMain.BtnResetBinarySearchTreeClick(Sender: TObject);
