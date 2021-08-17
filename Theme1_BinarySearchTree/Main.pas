@@ -66,13 +66,11 @@ begin
     EdtKey.SetFocus;
 end;
 
-
 //Форматирование текста вывода последовательности ключей
 procedure TfMain.Show(const Msg: string);
 begin
   MemoInputKeySequence.Lines.Text := MemoInputKeySequence.Text + EdtKey.Text + ' -> ';
 end;
-
 
 //Вывод на экран дерева в прямом порядке
 procedure TfMain.BtnPreOrderBinarySearchTreeClick(Sender: TObject);
@@ -85,9 +83,6 @@ begin
   MemoOutTreePreOrder.Lines.Add(s);
 end;
 
-
-
-
 //Процедура вывода на экран дерева в симметричном порядке
 procedure TfMain.BtnInOrderBinarySearchTreeClick(Sender: TObject);
 var LvlRootNode: Integer;
@@ -98,8 +93,6 @@ begin
   InOrder(WorkTree, LvlRootNode, s);
   MemoOutTreeInOrder.Lines.Add(s);
 end;
-
-
 
 //Вывод на экран входной последовательности ключей
  procedure TfMain.BtnAddNodeClick(Sender: TObject);
@@ -119,7 +112,6 @@ begin
     end;
 end;
 
-
 //Вывод на экран найденной вершины
 procedure TfMain.BtnSearchNodeByKeyClick(Sender: TObject);
 begin
@@ -135,8 +127,7 @@ begin
      end;
 end;
 
-
-//Сброс
+//Сброс: удаление дерева, reset forms
 procedure TfMain.BtnResetBinarySearchTreeClick(Sender: TObject);
 begin
   MemoInputKeySequence.Lines.Clear;

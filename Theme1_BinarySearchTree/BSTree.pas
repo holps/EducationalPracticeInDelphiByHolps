@@ -40,14 +40,13 @@ procedure CreateNode(var pNewNode: pTreeNode; keyField: Integer);
 begin
   New(pNewNode);
   pNewNode^.key := keyField;
-  pNewNode^.counterKey := 1;
+  pNewNode^.counterKey := 1;//<<Счетчик числа вхождений ключа
   pNewNode^.Left := nil;
   pNewNode^.Right := nil;
 end;
 
 //Рекурсивное добавление узла
 procedure AddNode(var pNewNode: pTreeNode; keyField: Integer);
-
 begin
   if pNewNode = nil then
     begin
@@ -105,9 +104,9 @@ end;
  end;
 
 //Дополнение слева строки пробелами
-function CorrectString ({SrcString: string; }ColSpace: Integer): string;
+function CorrectString (ColSpace: Integer): string;
 begin
-  Result := '';//SrcString;
+  Result := '';
   while ColSpace > 0 do
     begin
       Result := ' ' + Result;
@@ -122,12 +121,8 @@ var
 begin
   if pTemp <> nil then
     begin
-      //ShowMessage(IntToStr(pTemp^.key) + 'Уровень вершины: ' + IntToStr(LvlNode));//<<Обработка текущей вершины
-      //str := str + IntToStr(pTemp^.key)+ #13#10;
       Spaces := (LvlNode - 0) * 5; //<<Подсчет пробелов на каждом уровне
-      //ShowMessage('Количество пробелов:' + IntToStr(Spaces));
-      str := str + CorrectString({str, }Spaces)+ IntToStr(pTemp^.key) + #13#10;
-      //ShowMessage(str);
+      str := str + CorrectString(Spaces)+ IntToStr(pTemp^.key) + #13#10;
       Inc(LvlNode);
       PreOrder(pTemp^.left, LvlNode, str);
       PreOrder(pTemp^.right, LvlNode, str);
@@ -145,13 +140,11 @@ begin
       Spaces := (LvlNode - 0) * 5;
       Inc(LvlNode);
       InOrder(pTemp^.left, LvlNode, str);
-      //ShowMessage(IntToStr(pTemp^.key) + 'Уровень вершины: ' + IntToStr(LvlNode));//<<Обработка текущей вершины
-      str := str + CorrectString(Spaces)+ IntToStr(pTemp^.key) + #13#10;
+      str := str + CorrectString(Spaces)+ IntToStr(pTemp^.key) + #13#10;//<<пробелы по уровню вершины дерева
       InOrder(pTemp^.right,LvlNode, str);
     end;
 
 end;
-
 
 //Рекурсивная процедура освобождения памяти, занятой деревом. Удаление дерева
 procedure FreeBSTree (var pTemp: pTreeNode);
@@ -163,5 +156,6 @@ if pTemp = nil then
   Dispose(pTemp);
   pTemp := nil;
 end;
+
 
 end.
