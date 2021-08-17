@@ -140,7 +140,7 @@ begin
   while CountNode > 0 do  //<<«аполн€ем дерево с заданным количеством вершин
     begin
       Randomize;
-      NewKey := 1 + Random(100);
+      NewKey := 1 + Random(100); //¬ыставл€ем диапазон случайных чисел
       AddNode(WorkTree,NewKey);
       Show(IntToStr(NewKey));
       Dec(CountNode);
