@@ -1,0 +1,150 @@
+object fMain: TfMain
+  Left = 0
+  Top = 0
+  Caption = #1052#1077#1090#1086#1076' '#1093#1101#1096'-'#1087#1086#1080#1089#1082#1072
+  ClientHeight = 444
+  ClientWidth = 998
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object PnlAddKey: TPanel
+    Position.X = 8.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 585.000000000000000000
+    Size.Height = 73.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object BtnAddKey: TButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 320.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 105.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = #1044#1086#1073#1072#1074#1080#1090#1100
+      TextSettings.Font.Size = 15.000000000000000000
+    end
+    object BtnSearchKey: TButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 456.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 105.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = #1055#1086#1080#1089#1082
+      TextSettings.Font.Size = 15.000000000000000000
+    end
+  end
+  object PnlMgmtData: TPanel
+    Position.X = 632.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 353.000000000000000000
+    Size.Height = 73.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object BtnOutDisplay: TButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 24.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 145.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = #1042#1099#1074#1077#1089#1090#1080' '#1085#1072' '#1101#1082#1088#1072#1085
+      TextSettings.Font.Size = 15.000000000000000000
+    end
+    object BtnReset: TButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 208.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 105.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = #1057#1073#1088#1086#1089
+      TextSettings.Font.Size = 15.000000000000000000
+    end
+  end
+  object PnlAddSettings: TPanel
+    Position.X = 8.000000000000000000
+    Position.Y = 152.000000000000000000
+    Size.Width = 977.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object Rbtn11: TRadioButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 224.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 65.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = '11'
+      TextSettings.Font.Size = 15.000000000000000000
+    end
+    object Rbtn13: TRadioButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 304.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 65.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = '13'
+      TextSettings.Font.Size = 15.000000000000000000
+    end
+    object Rbtn17: TRadioButton
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 384.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 73.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = '17'
+      TextSettings.Font.Size = 15.000000000000000000
+    end
+    object LblAddSettings: TLabel
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 16.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 177.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 15.000000000000000000
+      Text = #1056#1072#1079#1084#1077#1088#1085#1086#1089#1090#1100' '#1084#1072#1089#1089#1080#1074#1072':'
+      TabOrder = 4
+    end
+  end
+  object StringGridArray: TStringGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 8.000000000000000000
+    Position.Y = 248.000000000000000000
+    Size.Width = 977.000000000000000000
+    Size.Height = 137.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Options = [Editing, ColumnResize, ColumnMove, ColLines, RowLines, Tabs, HeaderClick, AutoDisplacement]
+    Viewport.Width = 957.000000000000000000
+    Viewport.Height = 133.000000000000000000
+    object StringColumn1: TStringColumn
+    end
+    object StringColumn2: TStringColumn
+    end
+  end
+  object EdtAddKey: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 5
+    Position.X = 16.000000000000000000
+    Position.Y = 72.000000000000000000
+    Hint = #1042#1074#1077#1076#1080#1090#1077' '#1090#1077#1082#1089#1090#1086#1074#1099#1081' '#1082#1083#1102#1095
+    Size.Width = 273.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+  end
+end
