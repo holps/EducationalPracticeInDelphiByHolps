@@ -14,8 +14,6 @@ type
     PnlMgmtData: TPanel;
     PnlAddSettings: TPanel;
     StringGridArray: TStringGrid;
-    StringColumn1: TStringColumn;
-    StringColumn2: TStringColumn;
     EdtAddKey: TEdit;
     BtnOutDisplay: TButton;
     BtnReset: TButton;
@@ -25,6 +23,8 @@ type
     BtnAddKey: TButton;
     BtnSearchKey: TButton;
     LblAddSettings: TLabel;
+    procedure BtnAddKeyClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,5 +37,25 @@ var
 implementation
 
 {$R *.fmx}
+
+uses Hash;
+
+
+procedure TfMain.BtnAddKeyClick(Sender: TObject);
+var
+  x: string;
+begin
+  x:= EdtAddKey.Text;
+  AddKeyMainArray(x);
+end;
+
+procedure TfMain.FormCreate(Sender: TObject);
+begin
+  while StringGridArray.ColumnCount < m+1 do
+  StringGridArray.AddObject(TStringColumn.Create(StringGridArray));
+  StringGridArray.Cells[0,0]:= 'Индекс';
+  StringGridArray.Cells[0,1]:= 'Ключ';
+  CreateArray();
+end;
 
 end.

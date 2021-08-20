@@ -3,7 +3,8 @@ program HashSearchMethod;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  Main in 'Main.pas' {fMain};
+  Main in 'Main.pas' {fMain},
+  Hash in 'Hash.pas';
 
 {$R *.res}
 
