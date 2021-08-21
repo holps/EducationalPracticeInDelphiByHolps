@@ -43,11 +43,25 @@ uses Hash;
 
 procedure TfMain.BtnAddKeyClick(Sender: TObject);
 var
-  x: string;
+  KeyString: string;
+  Column, I: Integer;
 begin
-  x:= EdtAddKey.Text;
-  AddKeyMainArray(x);
+  Column:= 1;
+  KeyString:= EdtAddKey.Text;
+  AddKeyMainArray(KeyString);//<<Добавление в массив ключа с преобразованных хэш-функцией индексом
+//-----------------------------
+//Блок вывода на экран значений в массиве
+//Начало
+    for I := Low(MainArray) to High(MainArray) do
+    begin
+      StringGridArray.Cells[Column,0]:= I.ToString;
+      StringGridArray.Cells[Column,1]:= MainArray[I];
+      Inc(Column);
+    end;
+//Конец
+//-----------------------------
 end;
+
 
 procedure TfMain.FormCreate(Sender: TObject);
 begin

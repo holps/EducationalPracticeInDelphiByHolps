@@ -60,4 +60,30 @@ begin
   Result := x mod m;
 end;
 
+//Поиск
+
+
+//Проверка количества добавленных ключей
+
+{
+//Вывод индексов массива
+procedure IndexPassArray; //Проход по массиву
+var
+  I: Integer;
+begin
+  for I in MainArray do
+      begin
+
+      end;
+end;
+
+//Вывод ключей массива
+procedure KeyPassArray;
+
+begin
+
+end;
+}
+
+
 end.
