@@ -38,6 +38,7 @@ object fMain: TfMain
       TabOrder = 2
       Text = #1055#1086#1080#1089#1082
       TextSettings.Font.Size = 15.000000000000000000
+      OnClick = BtnSearchKeyClick
     end
     object BtnResetArray: TButton
       StyledSettings = [Family, Style, FontColor]
@@ -49,6 +50,7 @@ object fMain: TfMain
       TabOrder = 3
       Text = #1057#1073#1088#1086#1089
       TextSettings.Font.Size = 15.000000000000000000
+      OnClick = BtnResetArrayClick
     end
   end
   object PnlAddSettings: TPanel

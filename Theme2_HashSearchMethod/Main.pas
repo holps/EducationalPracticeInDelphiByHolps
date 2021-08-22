@@ -24,6 +24,8 @@ type
     procedure BtnAddKeyClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ArrayOutDisplay;
+    procedure BtnSearchKeyClick(Sender: TObject);
+    procedure BtnResetArrayClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -48,6 +50,26 @@ begin
   KeyString:= EdtAddKey.Text;
   AddKeyMainArray(KeyString);//<<Добавление в массив ключа с преобразованных хэш-функцией индексом
   ArrayOutDisplay;
+  EdtAddKey.Text := '';
+  EdtAddKey.SetFocus;
+end;
+
+procedure TfMain.BtnResetArrayClick(Sender: TObject);
+begin
+  while StringGridArray.ColumnCount < m+1 do
+  StringGridArray.AddObject(TStringColumn.Create(StringGridArray));
+  StringGridArray.Cells[0,0]:= 'Индекс:';
+  StringGridArray.Cells[0,1]:= 'Ключ:';
+  StringGridArray.Cells[0,2]:= 'Данные:';
+  SetLength(MainArray,0);
+  CreateArray();
+  ArrayOutDisplay;
+  EdtAddKey.SetFocus;
+end;
+
+procedure TfMain.BtnSearchKeyClick(Sender: TObject);
+begin
+  SearchKey(EdtAddKey.Text);
   EdtAddKey.Text := '';
   EdtAddKey.SetFocus;
 end;
