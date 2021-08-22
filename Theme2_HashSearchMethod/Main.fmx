@@ -3,7 +3,7 @@ object fMain: TfMain
   Top = 0
   Caption = #1052#1077#1090#1086#1076' '#1093#1101#1096'-'#1087#1086#1080#1089#1082#1072
   ClientHeight = 444
-  ClientWidth = 998
+  ClientWidth = 755
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -12,7 +12,7 @@ object fMain: TfMain
   object PnlAddKey: TPanel
     Position.X = 8.000000000000000000
     Position.Y = 48.000000000000000000
-    Size.Width = 585.000000000000000000
+    Size.Width = 737.000000000000000000
     Size.Height = 73.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
@@ -39,33 +39,14 @@ object fMain: TfMain
       Text = #1055#1086#1080#1089#1082
       TextSettings.Font.Size = 15.000000000000000000
     end
-  end
-  object PnlMgmtData: TPanel
-    Position.X = 632.000000000000000000
-    Position.Y = 48.000000000000000000
-    Size.Width = 353.000000000000000000
-    Size.Height = 73.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 1
-    object BtnOutDisplay: TButton
+    object BtnResetArray: TButton
       StyledSettings = [Family, Style, FontColor]
-      Position.X = 24.000000000000000000
-      Position.Y = 24.000000000000000000
-      Size.Width = 145.000000000000000000
-      Size.Height = 33.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 1
-      Text = #1042#1099#1074#1077#1089#1090#1080' '#1085#1072' '#1101#1082#1088#1072#1085
-      TextSettings.Font.Size = 15.000000000000000000
-    end
-    object BtnReset: TButton
-      StyledSettings = [Family, Style, FontColor]
-      Position.X = 208.000000000000000000
+      Position.X = 592.000000000000000000
       Position.Y = 24.000000000000000000
       Size.Width = 105.000000000000000000
       Size.Height = 33.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 2
+      TabOrder = 4
       Text = #1057#1073#1088#1086#1089
       TextSettings.Font.Size = 15.000000000000000000
     end
@@ -73,10 +54,10 @@ object fMain: TfMain
   object PnlAddSettings: TPanel
     Position.X = 8.000000000000000000
     Position.Y = 152.000000000000000000
-    Size.Width = 977.000000000000000000
+    Size.Width = 737.000000000000000000
     Size.Height = 57.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 2
+    TabOrder = 1
     object Rbtn11: TRadioButton
       StyledSettings = [Family, Style, FontColor]
       Position.X = 224.000000000000000000
@@ -127,21 +108,21 @@ object fMain: TfMain
     ClipChildren = True
     Position.X = 8.000000000000000000
     Position.Y = 248.000000000000000000
-    Size.Width = 977.000000000000000000
+    Size.Width = 737.000000000000000000
     Size.Height = 100.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 15.000000000000000000
     StyledSettings = [Family, Style, FontColor]
-    TabOrder = 3
+    TabOrder = 2
     RowHeight = 30.000000000000000000
     RowCount = 2
     Options = [ColumnResize, ColLines, RowLines, Tabs, HeaderClick, AutoDisplacement]
-    Viewport.Width = 973.000000000000000000
+    Viewport.Width = 733.000000000000000000
     Viewport.Height = 96.000000000000000000
   end
   object EdtAddKey: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]
-    TabOrder = 5
+    TabOrder = 4
     Position.X = 16.000000000000000000
     Position.Y = 72.000000000000000000
     Hint = #1042#1074#1077#1076#1080#1090#1077' '#1090#1077#1082#1089#1090#1086#1074#1099#1081' '#1082#1083#1102#1095

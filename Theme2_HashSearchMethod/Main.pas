@@ -11,18 +11,16 @@ uses
 type
   TfMain = class(TForm)
     PnlAddKey: TPanel;
-    PnlMgmtData: TPanel;
     PnlAddSettings: TPanel;
     StringGridArray: TStringGrid;
     EdtAddKey: TEdit;
-    BtnOutDisplay: TButton;
-    BtnReset: TButton;
     Rbtn11: TRadioButton;
     Rbtn13: TRadioButton;
     Rbtn17: TRadioButton;
     BtnAddKey: TButton;
     BtnSearchKey: TButton;
     LblAddSettings: TLabel;
+    BtnResetArray: TButton;
     procedure BtnAddKeyClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ArrayOutDisplay;
