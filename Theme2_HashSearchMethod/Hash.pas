@@ -35,9 +35,9 @@ end;
 //Добавление в массив ключа
 procedure AddKeyMainArray(Words: string);
 var
-y: Integer;
+  y: Integer;
 begin
-y:= 0;//<<Счетчик числа сравнений
+  y:= 0;//<<Счетчик числа сравнений
   if MainArray[KeyIndex(Words)].IsNullOrEmpty(MainArray[KeyIndex(Words)]) then //<<Проверка ячейки на пустоту. Костыль. Пока ничего подходящего не нашел.
     begin
       inc(y);
@@ -49,6 +49,7 @@ y:= 0;//<<Счетчик числа сравнений
       begin
 
         ShowMessage('ячейка не пуста');
+
         //поиск свободного места
         //подсчет сравнений
       end;
@@ -80,7 +81,18 @@ begin
   Result := x mod m;
 end;
 
-//Поиск
+//Поиск свободной ячейки линейное сканирование
+function SearchFreeIndex(KI: Integer): Integer;
+var i: Integer;
+begin
+        for i := 0 to m-2 do
+          begin
+            Result :=  ((KI + i) mod m)+ 1;
+            ShowMessage(Result.ToString);
+            //AddKeyMainArray(Words);
+          end;
+end;
+
 
 
 //Проверка количества добавленных ключей

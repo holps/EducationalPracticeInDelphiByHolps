@@ -39,7 +39,7 @@ implementation
 
 uses Hash;
 
-
+//Добавляем ключ в массив
 procedure TfMain.BtnAddKeyClick(Sender: TObject);
 var
   KeyString: string;
@@ -47,10 +47,10 @@ var
 begin
   KeyString:= EdtAddKey.Text;
   AddKeyMainArray(KeyString);//<<Добавление в массив ключа с преобразованных хэш-функцией индексом
-  Show;
+  ArrayOutDisplay;
 end;
 
-
+//Действия при создании формы
 procedure TfMain.FormCreate(Sender: TObject);
 begin
   while StringGridArray.ColumnCount < m+1 do
@@ -61,6 +61,7 @@ begin
   ArrayOutDisplay;
 end;
 
+//Вывод массива на экран
 procedure TfMain.ArrayOutDisplay;
 var
   Column, I: Integer;
