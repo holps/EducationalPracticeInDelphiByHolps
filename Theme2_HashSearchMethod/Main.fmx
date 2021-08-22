@@ -46,7 +46,7 @@ object fMain: TfMain
       Size.Width = 105.000000000000000000
       Size.Height = 33.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 4
+      TabOrder = 3
       Text = #1057#1073#1088#1086#1089
       TextSettings.Font.Size = 15.000000000000000000
     end
@@ -109,16 +109,16 @@ object fMain: TfMain
     Position.X = 8.000000000000000000
     Position.Y = 248.000000000000000000
     Size.Width = 737.000000000000000000
-    Size.Height = 100.000000000000000000
+    Size.Height = 153.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Size = 15.000000000000000000
     StyledSettings = [Family, Style, FontColor]
     TabOrder = 2
     RowHeight = 30.000000000000000000
-    RowCount = 2
+    RowCount = 3
     Options = [ColumnResize, ColLines, RowLines, Tabs, HeaderClick, AutoDisplacement]
     Viewport.Width = 733.000000000000000000
-    Viewport.Height = 96.000000000000000000
+    Viewport.Height = 149.000000000000000000
   end
   object EdtAddKey: TEdit
     Touch.InteractiveGestures = [LongTap, DoubleTap]

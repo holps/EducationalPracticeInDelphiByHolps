@@ -9,7 +9,12 @@ uses
 
 type
 
-  TMainArray = array of string;//<<Объявление массива
+  TMyInfo = record
+    Keys: Integer;
+    Info: string;
+  end;
+
+  TMainArray = array of TMyInfo;//<<Объявление массива
 
 const
   m = 11;
@@ -48,7 +53,8 @@ begin
       if EmptyIndexArray(KeyIndex(Words)) then
         begin
           //inc(y);
-          MainArray[KeyIndex(Words)] := Words;
+          MainArray[KeyIndex(Words)].Keys := KeyConversion(Words);
+          MainArray[KeyIndex(Words)].Info := Words;
           ShowMessage('Выполнено!' + sLineBreak +'Ключ '+IntToStr(KeyIndex(Words)) + ' : ' + Words + '. Число сравнений: ' + y.ToString);
         end
       else
@@ -60,8 +66,9 @@ begin
               var x:= SearchFreeIndex(KeyIndex(Words), z);
               if EmptyIndexArray(x) then
                 begin
-                  MainArray[x] := Words;
-                  ShowMessage('Выполнено!' + sLineBreak +'Ключ '+IntToStr(KeyIndex(Words)) + ' : ' + Words + '. Число сравнений: ' + y.ToString);
+                  MainArray[x].Keys := KeyConversion(Words);
+                  MainArray[x].Info := Words;
+                  ShowMessage('Выполнено!' + sLineBreak +'Ячейка '+ x.ToString + ' : ' + Words + '. Число сравнений: ' + y.ToString);
                   Exit;
                 end
               else
@@ -76,7 +83,7 @@ end;
 //Проверка ячейки на пустоту
 function EmptyIndexArray(KI: Integer): boolean;
 begin
-  Result:= MainArray[KI] = '';
+  Result:= MainArray[KI].Info = '';
 end;
 
 //Преобразование в целочисленный эквивалент
@@ -105,7 +112,7 @@ begin
   ShowMessage('Пробуем записать в ячейку № ' + Result.ToString);
 end;
 
-
+//Поиск ключа
 
 //Проверка количества добавленных ключей
 function SummArray(MainArray: TMainArray): boolean;

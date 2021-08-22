@@ -57,8 +57,9 @@ procedure TfMain.FormCreate(Sender: TObject);
 begin
   while StringGridArray.ColumnCount < m+1 do
   StringGridArray.AddObject(TStringColumn.Create(StringGridArray));
-  StringGridArray.Cells[0,0]:= 'Индекс';
-  StringGridArray.Cells[0,1]:= 'Ключ';
+  StringGridArray.Cells[0,0]:= 'Индекс:';
+  StringGridArray.Cells[0,1]:= 'Ключ:';
+  StringGridArray.Cells[0,2]:= 'Данные:';
   CreateArray();
   ArrayOutDisplay;
   EdtAddKey.SetFocus;
@@ -73,7 +74,8 @@ begin
   for I := Low(MainArray) to High(MainArray) do
     begin
       StringGridArray.Cells[Column,0]:= I.ToString;//<<Индекс массива
-      StringGridArray.Cells[Column,1]:= MainArray[I];//<<Данные массива
+      StringGridArray.Cells[Column,1]:= MainArray[I].Keys.ToString;//<<Ключи массива
+      StringGridArray.Cells[Column,2]:= MainArray[I].Info;//<<Данные массива
       Inc(Column);
     end;
 end;
