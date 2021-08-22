@@ -25,6 +25,7 @@ type
     LblAddSettings: TLabel;
     procedure BtnAddKeyClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure ArrayOutDisplay;
   private
     { Private declarations }
   public
@@ -44,22 +45,11 @@ uses Hash;
 procedure TfMain.BtnAddKeyClick(Sender: TObject);
 var
   KeyString: string;
-  Column, I: Integer;
+  Column: Integer;
 begin
-  Column:= 1;
   KeyString:= EdtAddKey.Text;
   AddKeyMainArray(KeyString);//<<Добавление в массив ключа с преобразованных хэш-функцией индексом
-//-----------------------------
-//Блок вывода на экран значений в массиве
-//Начало
-    for I := Low(MainArray) to High(MainArray) do
-    begin
-      StringGridArray.Cells[Column,0]:= I.ToString;
-      StringGridArray.Cells[Column,1]:= MainArray[I];
-      Inc(Column);
-    end;
-//Конец
-//-----------------------------
+  Show;
 end;
 
 
@@ -70,6 +60,20 @@ begin
   StringGridArray.Cells[0,0]:= 'Индекс';
   StringGridArray.Cells[0,1]:= 'Ключ';
   CreateArray();
+  ArrayOutDisplay;
+end;
+
+procedure TfMain.ArrayOutDisplay;
+var
+  Column, I: Integer;
+begin
+  Column:= 1;
+  for I := Low(MainArray) to High(MainArray) do
+    begin
+      StringGridArray.Cells[Column,0]:= I.ToString;//<<Индекс массива
+      StringGridArray.Cells[Column,1]:= MainArray[I];//<<Данные массива
+      Inc(Column);
+    end;
 end;
 
 end.

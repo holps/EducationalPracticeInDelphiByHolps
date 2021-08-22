@@ -18,7 +18,6 @@ var
 
 procedure AddKeyMainArray(Words: string);//Добавление в массив ключа
 procedure CreateArray; //Создание массива
-//procedure ExistArray(MainArray);//Проверка существования массива
 //Размер массива
 function KeyConversion(KeyWord: string): Integer;//Вычисление значения хэш-функции для заданного ключа
 //Вычисление веса слов в символах
@@ -35,9 +34,30 @@ end;
 
 //Добавление в массив ключа
 procedure AddKeyMainArray(Words: string);
+var
+y: Integer;
 begin
-  MainArray[KeyIndex(Words)] := Words;
-  ShowMessage(IntToStr(KeyIndex(Words)) + ' : ' + Words);//<<Заглушки для проверки
+y:= 0;//<<Счетчик числа сравнений
+  if MainArray[KeyIndex(Words)].IsNullOrEmpty(MainArray[KeyIndex(Words)]) then //<<Проверка ячейки на пустоту. Костыль. Пока ничего подходящего не нашел.
+    begin
+      inc(y);
+      //ShowMessage(MainArray[KeyIndex(Words)]);
+      MainArray[KeyIndex(Words)] := Words;
+      ShowMessage(IntToStr(KeyIndex(Words)) + ' : ' + Words + '. Число сравнений: ' + y.ToString);
+    end
+    else
+      begin
+
+        ShowMessage('ячейка не пуста');
+        //поиск свободного места
+        //подсчет сравнений
+      end;
+
+
+      //ShowMessage(MainArray[KeyIndex(Words)]);
+      //MainArray[KeyIndex(Words)] := Words;
+
+      //ShowMessage(IntToStr(KeyIndex(Words)) + ' : ' + Words);//<<Заглушки для проверки
 end;
 
 //Преобразование в целочисленный эквивалент
@@ -56,7 +76,7 @@ var
   x: Integer;
 begin
   x := KeyConversion(Words);
-  ShowMessage(IntToStr(x));//<<Заглушки для проверки
+  //ShowMessage(IntToStr(x));//<<Заглушки для проверки
   Result := x mod m;
 end;
 
@@ -65,25 +85,6 @@ end;
 
 //Проверка количества добавленных ключей
 
-{
-//Вывод индексов массива
-procedure IndexPassArray; //Проход по массиву
-var
-  I: Integer;
-begin
-  for I in MainArray do
-      begin
-
-      end;
-end;
-
-//Вывод ключей массива
-procedure KeyPassArray;
-
-begin
-
-end;
-}
 
 
 end.
