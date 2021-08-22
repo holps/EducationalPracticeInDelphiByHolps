@@ -22,8 +22,9 @@ procedure CreateArray; //Создание массива
 function KeyConversion(KeyWord: string): Integer;//Вычисление значения хэш-функции для заданного ключа
 //Вычисление веса слов в символах
 function KeyIndex(Words: string): Integer;//Возвращаем значение вычисляемое хэш-функцией для заданного ключа
-
-
+function SearchFreeIndex(KI: Integer; z: Integer): Integer;
+function EmptyIndexArray(KI: Integer): boolean;
+function SummArray(MainArray: TMainArray): boolean;
 implementation
 
 //Создание массива
@@ -37,28 +38,45 @@ procedure AddKeyMainArray(Words: string);
 var
   y: Integer;
 begin
-  y:= 0;//<<Счетчик числа сравнений
-  if MainArray[KeyIndex(Words)].IsNullOrEmpty(MainArray[KeyIndex(Words)]) then //<<Проверка ячейки на пустоту. Костыль. Пока ничего подходящего не нашел.
+  if SummArray(MainArray) then
     begin
-      inc(y);
-      //ShowMessage(MainArray[KeyIndex(Words)]);
-      MainArray[KeyIndex(Words)] := Words;
-      ShowMessage(IntToStr(KeyIndex(Words)) + ' : ' + Words + '. Число сравнений: ' + y.ToString);
+      ShowMessage('Немозможно добавить! Использовано максимальное количество ключей: 10!');
     end
-    else
-      begin
+  else
+    begin
+      y:= 1;//<<Счетчик числа сравнений
+      if EmptyIndexArray(KeyIndex(Words)) then
+        begin
+          //inc(y);
+          MainArray[KeyIndex(Words)] := Words;
+          ShowMessage('Выполнено!' + sLineBreak +'Ключ '+IntToStr(KeyIndex(Words)) + ' : ' + Words + '. Число сравнений: ' + y.ToString);
+        end
+      else
+        begin
+        ShowMessage('Ячейка ' + KeyIndex(Words).ToString + ' занята!');
+          for var z := 0 to m-2 do
+            begin
+              inc(y);
+              var x:= SearchFreeIndex(KeyIndex(Words), z);
+              if EmptyIndexArray(x) then
+                begin
+                  MainArray[x] := Words;
+                  ShowMessage('Выполнено!' + sLineBreak +'Ключ '+IntToStr(KeyIndex(Words)) + ' : ' + Words + '. Число сравнений: ' + y.ToString);
+                  Exit;
+                end
+              else
+                ShowMessage('Ячейка ' + x.ToString + ' занята!');
+              end;
 
-        ShowMessage('ячейка не пуста');
+          end;
+    end;
 
-        //поиск свободного места
-        //подсчет сравнений
-      end;
+end;
 
-
-      //ShowMessage(MainArray[KeyIndex(Words)]);
-      //MainArray[KeyIndex(Words)] := Words;
-
-      //ShowMessage(IntToStr(KeyIndex(Words)) + ' : ' + Words);//<<Заглушки для проверки
+//Проверка ячейки на пустоту
+function EmptyIndexArray(KI: Integer): boolean;
+begin
+  Result:= MainArray[KI] = '';
 end;
 
 //Преобразование в целочисленный эквивалент
@@ -77,26 +95,30 @@ var
   x: Integer;
 begin
   x := KeyConversion(Words);
-  //ShowMessage(IntToStr(x));//<<Заглушки для проверки
   Result := x mod m;
 end;
 
 //Поиск свободной ячейки линейное сканирование
-function SearchFreeIndex(KI: Integer): Integer;
-var i: Integer;
+function SearchFreeIndex(KI: Integer; z: Integer): Integer;
 begin
-        for i := 0 to m-2 do
-          begin
-            Result :=  ((KI + i) mod m)+ 1;
-            ShowMessage(Result.ToString);
-            //AddKeyMainArray(Words);
-          end;
+  Result :=  ((KI + z) mod m)+ 1;
+  ShowMessage('Пробуем записать в ячейку № ' + Result.ToString);
 end;
 
 
 
 //Проверка количества добавленных ключей
-
-
+function SummArray(MainArray: TMainArray): boolean;
+var
+  I,Total: Integer;
+begin
+  Total:= 0;
+  for I := Low(MainArray) to High(MainArray) do
+    begin
+      if not EmptyIndexArray(I) then
+        inc(Total);
+    end;
+  Result:= Total >= 10;
+end;
 
 end.

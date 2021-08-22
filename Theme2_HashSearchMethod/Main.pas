@@ -48,6 +48,8 @@ begin
   KeyString:= EdtAddKey.Text;
   AddKeyMainArray(KeyString);//<<Добавление в массив ключа с преобразованных хэш-функцией индексом
   ArrayOutDisplay;
+  EdtAddKey.Text := '';
+  EdtAddKey.SetFocus;
 end;
 
 //Действия при создании формы
@@ -59,6 +61,7 @@ begin
   StringGridArray.Cells[0,1]:= 'Ключ';
   CreateArray();
   ArrayOutDisplay;
+  EdtAddKey.SetFocus;
 end;
 
 //Вывод массива на экран
