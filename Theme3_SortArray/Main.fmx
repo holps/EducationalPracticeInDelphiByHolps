@@ -100,8 +100,9 @@ object fMain: TfMain
       TabOrder = 1
       Text = #1052#1077#1090#1086#1076' '#1074#1099#1073#1086#1088#1072
       TextSettings.Font.Size = 15.000000000000000000
+      OnClick = BtnChoiceSortClick
     end
-    object Button3: TButton
+    object BtnQuickSort: TButton
       StyledSettings = [Family, Style, FontColor]
       Position.X = 312.000000000000000000
       Position.Y = 16.000000000000000000
@@ -111,6 +112,7 @@ object fMain: TfMain
       TabOrder = 2
       Text = #1041#1099#1089#1090#1088#1072#1103' '#1089#1086#1088#1090#1080#1088#1086#1074#1082#1072
       TextSettings.Font.Size = 15.000000000000000000
+      OnClick = BtnQuickSortClick
     end
     object Button4: TButton
       StyledSettings = [Family, Style, FontColor]
@@ -131,6 +133,17 @@ object fMain: TfMain
     Size.Height = 145.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
+    object MemoLog: TMemo
+      Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+      DataDetectorTypes = []
+      Align = Contents
+      Size.Width = 617.000000000000000000
+      Size.Height = 145.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Viewport.Width = 613.000000000000000000
+      Viewport.Height = 141.000000000000000000
+    end
   end
   object PnlGridArray: TPanel
     Position.X = 8.000000000000000000
